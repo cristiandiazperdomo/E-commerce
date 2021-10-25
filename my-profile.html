@@ -34,28 +34,71 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
+ <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-3 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-3 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-3 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-3 d-none d-md-inline-block" href="sell.html">Vender</a>
+    
+      <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="userSpace d-inline"></p>
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+                <a class="dropdown-item"id="deleteInfo">Cerrar sesión</a>  
+       </div>
+    </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted bg-light">
+ <nav>  
+      <div class="col">
+            <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
+            <button  class="btnes btn btn-light  mb-1">Buscar</button>
+            <button  class="btnDelete btn btn-light mb-1">Borrar</button>
+      
+            <div class="content-search">
+                <div class="content-table"> 
+                    <table class="table">
+                        <thead>
+                            <tr class="resultado">
+                                
+                            </tr>
+                        </thead>
+                    </table>
+                </div> 
+            </div>
+       </div>
+    </nav>
     <div class="container">
+    <section>
+        <article class="myProfileData">
+          <h2>Por favor completa tus datos</h2>
+            </br>
+          <div class="col-sm-10">
+            <label class="ordenBlock">Nombre Completo<input class="form-control" type="text" name="name" id="myProfileData__name"></label>
+            <label class="ordenBlock">Apellido Completo<input class="form-control" type="text" name="name" id="myProfileData__lastname"></label>
+            <label class="ordenBlock">Edad<input class="form-control" type="Number" name="name" id="myProfileData__age"></label>
+            <label class="ordenBlock">E-mail<input class="form-control" type="text" name="name" id="myProfileData__email" placeholder="name@example.com"></label>
+            <div class="d-flex flex-column  align-items-center" id="showUserImg">
+              <label class="subir"><input type="file" name="file" id="myProfileImg" onchange="idontKnow(event)" class="uploadProfileImg" style='display: none;'>Subir Foto</label>
+            </div>      
+
+            <button class="btn btn-primary mb-2" id="botonPrueba" onclick="getUserData()">Guardar datos</button>
+
+
+          </div>
+
+        </article>
+    </section>
+    </div>
+  <footer class="text-muted bg-light">
+    
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
+    
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
