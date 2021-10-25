@@ -1,3 +1,4 @@
+
 var category = {};
 
 function showImagesGallery(array){
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CATEGORY_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            category = resultObj.data;
+            let category = resultObj.data;
 
             let categoryNameHTML  = document.getElementById("categoryName");
             let categoryDescriptionHTML = document.getElementById("categoryDescription");
@@ -41,5 +42,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             //Muestro las imagenes en forma de galería
             showImagesGallery(category.images);
         }
+        
     });
 });

@@ -14,15 +14,45 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      </div>
+<nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-3 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-3 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-3 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-3 d-none d-md-inline-block" href="sell.html">Vender</a>
+    
+      <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="userSpace d-inline"></p>
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+                <a class="dropdown-item"id="deleteInfo">Cerrar sesión</a>  
+       </div>
+    </div>
+    </div>
+  </nav><div class="container">
+    <nav>  
+      <div class="col">
+            <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
+            <button  class="btnes btn btn-light  mb-1">Buscar</button>
+            <button  class="btnDelete btn btn-light mb-1">Borrar</button>
+
+            <div class="content-search">
+                <div class="content-table"> 
+                    <table class="table">
+                        <thead>
+                            <tr class="resultado">
+                                
+                            </tr>
+                        </thead>
+                    </table>
+                </div> 
+            </div>
+       </div>
     </nav>
+    <!--
     <div class="container p-5">
       <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
         <h4 class="alert-heading">¡A trabajar! :)</h4>
@@ -31,8 +61,42 @@
         <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
       </div>
     </div>
+    -->
+  <main role="main" class="pb-5">
+    
+    <div id="container-div">  
+      <div class="text-center p-4">
+            <h2>Productos</h2>
+            <p class="lead">Verás aquí todos los productos.</p>
+        </div>
+    <div class="row">
+                <div class="col text-right">
+                    <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                            
+                            <label class="btn btn-light" id="sortByMayorPrecio" >
+                            <input type="radio" name="options" autocomplete="off">Mayor Precio
+                            </label>
+                            <label class="btn btn-light" id="sortByMenorPrecio" >
+                            <input type="radio" name="options" autocomplete="off">Menor Precio
+                            </label>
+                            <label class="btn btn-light" id="sortByCount" >
+                                <input type="radio" name="options" ><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+                            </label>
+
+                    </div>
+                </div>
+            </div> 
+            
+            <div id="container-div__categoryName">
+  
+            </div >
+            </div >
+
+
+
+    </div>
     <footer class="text-muted bg-light">
-      <div class="container">
+      <div class="container"> </div>
         <p class="float-right">
           <a href="#">Volver arriba</a>
         </p>
@@ -40,7 +104,9 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
+
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+</main>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>

@@ -137,5 +137,31 @@ a.custom-card:hover {
 }
 
 .checked {
-  color: orange;
+  color: orange; 
+}
+#colordeseparacion{
+  color: #fff;
+}
+
+.form {
+  display: inline;
+  width: 85%;
+}
+.comentarios{
+  display: block;
+}
+.ordenBlock{
+display: block;
+}
+
+.subir{
+    padding: 5px 10px;
+    background: #f55d3e;
+    color:#fff;
+    border:0px solid #fff;
+}
+ 
+.subir:hover{
+    color:#fff;
+    background: #f7cb15;
 }
