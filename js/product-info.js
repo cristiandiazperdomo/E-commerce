@@ -3,7 +3,7 @@
 //elementos HTML presentes.
 
 
-
+let dataOnGoogleComment = JSON.parse(localStorage.getItem('userDataGoogle')); //data de usuario de google
 
 let comYaCreados = [];  //ARRAY PARA COMENTARIOS YA CREADOS
 
@@ -147,14 +147,23 @@ function showOldComments(comYaCreados) { //FUNCION PARA MOSTRAR LOS COMENTARIOS 
 
 function nuevosComentarios(arr){
 
-	if (arr) {
-        console.log(product.dateTime)
+	if (bLogin) {
+		console.log(arr[0])
 		for(let product of arr[0]) {
             let userName = JSON.parse(product.user);
             
 	 	sectionCom.innerHTML +=`<td class="comentarios">Nombre de usuario: ${userName[0].name} </br> Puntuación: ${(product.score)}
 	 </br> Opinión: ${product.description}  </br> Fecha: ${product.dateTime.getFullYear()}-${product.dateTime.getMonth()}-${product.dateTime.getDay()} 
      ${product.dateTime.getHours()}:${product.dateTime.getMinutes()}:${product.dateTime.getSeconds()} </td>`
+		}
+	}
+	else{
+		for(let product of arr[0]) {
+            console.log(product)
+            
+	 	sectionCom.innerHTML +=`<td class="comentarios">Nombre de usuario: ${product.user.toLowerCase()} </br> Puntuación: ${(product.score)}
+		 </br> Opinión: ${product.description}  </br> Fecha: ${product.dateTime.getFullYear()}-${product.dateTime.getMonth()}-${product.dateTime.getDay()} 
+	     ${product.dateTime.getHours()}:${product.dateTime.getMinutes()}:${product.dateTime.getSeconds()} </td>`
 		}
 	}
 }
@@ -168,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function(e){
              
     });
  });
-
+//dataOnGoogle.Se.toLowerCase()
 
 const crear_valor = () =>{
 
@@ -178,24 +187,33 @@ const crear_valor = () =>{
 		let valorDescription = entradaDescription.value;
         let valordataTime = new Date();
 
-		if (valorName && valorScore && valorDescription && valordataTime) {
+    if (bLogin) { 
+			if (valorName && valorScore && valorDescription && valordataTime) {
 
-		comentarios.push([{user: valorName, score: valorScore, description: valorDescription, dateTime: valordataTime}])  //INSERTO VALORES EN UN ARRAY
+			comentarios.push([{user: valorName, score: valorScore, description: valorDescription, dateTime: valordataTime}])  //INSERTO VALORES EN UN ARRAY
 
-		nuevosComentarios(comentarios);
+			nuevosComentarios(comentarios);
 
-		alert("¡Comentario agregado con exito!")																		      //MUESTRO LOS VALORES
-	}
+			alert("¡Comentario agregado con exito!")																		      //MUESTRO LOS VALORES
+			}
+			else{
+				alert("Completa todos los valores")
+			}
+	} 
 	else{
-		alert("Completa todos los valores")
+			if (dataOnGoogle.jf && valorScore && valorDescription && valordataTime) {
+
+			comentarios.push([{user: dataOnGoogle.jf, score: valorScore, description: valorDescription, dateTime: valordataTime}])  //INSERTO VALORES EN UN ARRAY
+
+			nuevosComentarios(comentarios);
+
+			alert("¡Comentario agregado con exito!")																		      //MUESTRO LOS VALORES
+			}
+			else{
+				alert("Completa todos los valores")
+			}
 	}
 }
 
 
 btnEnviar.addEventListener('click',  crear_valor);
-
-
-
-//-----------------------------
-
-

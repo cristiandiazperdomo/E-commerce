@@ -1,8 +1,8 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
 const URL_NEW_CART = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
+
+//const URL_NEW_CART = "http://localhost:3000/cart"
+
+let getCountArticlesToCheck = [];
 
 const showCart = (array) => {
 
@@ -20,7 +20,7 @@ const showCart = (array) => {
 
 	let allArticles = "";
     
-for (var i = 0; i < array.articles.length; i++) {
+for (let i = 0; i < array.articles.length; i++) {
     let elementsCart = array.articles[i]
 
 		allArticles += `
@@ -36,6 +36,7 @@ for (var i = 0; i < array.articles.length; i++) {
                         <label class="text-muted">Cantidad:   <input type="number" name="take" min="0" max="100" id="countArticles`+ i +`" class="countArticlesClass" value="`+ elementsCart.count+`"></label>
                     </div>
                     <small class="ladata text-muted d-flex"></small>
+                    <small class="showSubTotalandShipping text-muted d-flex"></small>
                 </div>
                <small class="text-muted">` + convertToDollars[i] + `</small>
             </div>
@@ -47,27 +48,31 @@ for (var i = 0; i < array.articles.length; i++) {
     }
 }
 
-const showTotal = (array) => {
+
+const showTotal = (array, shipping) => {
+
+    
 
     let convertToDollars = [];
 
     for(arr of array.articles){
         if (arr.currency === "UYU") {
-            convertToDollars.push(arr.unitCost / 40)
+            convertToDollars.push(arr.unitCost / 40);
         }
         else{
-            convertToDollars.push(arr.unitCost)
+            convertToDollars.push(arr.unitCost);
         }     
     }
 
-    let countArticlesNew =  document.querySelectorAll('.countArticlesClass')
+    let countArticlesNew =  document.querySelectorAll('.countArticlesClass');
 
-    let location = document.querySelectorAll('.ladata')
+    let location = document.querySelectorAll('.ladata');
+    let showSubTotalandShipping = document.querySelectorAll('.showSubTotalandShipping');
 
     //--------
         let unitCountArticlesOld = [];
 
-    for (var i = 0; i < array.articles.length; i++) {
+    for (let i = 0; i < array.articles.length; i++) { //UNICAMENTE SUBTOTAL
         let showSubTotal = "";
 
         unitCountArticlesOld.push(Number(countArticlesNew[i].value) * convertToDollars[i]); 
@@ -77,36 +82,186 @@ const showTotal = (array) => {
         location[i].innerHTML = showSubTotal;
 
     }
-        let valorTotal = 0;
 
-        for (var i = 0; i < unitCountArticlesOld.length; i++) {
-                valorTotal += unitCountArticlesOld[i];
+        let valorTotalAndShipping = [];  // CALCULAR SUBTOTAL MAS ENVIO
+
+        for (let i = 0; i < unitCountArticlesOld.length; i++) {
+            
+                let showSubTotalandShippingArray = "";
+
+                valorTotalAndShipping.push(unitCountArticlesOld[i] + (unitCountArticlesOld[i] * (shipping / 100)));
+
+                showSubTotalandShippingArray += `Envio + SubTotal: ${valorTotalAndShipping[i].toFixed(2)} `
+                
+                showSubTotalandShipping[i].innerHTML = showSubTotalandShippingArray;
+
         }
-    //--------
 
+        let valorTotal = 0;  // CALCULAR TOTAL
+
+        for (let i = 0; i < unitCountArticlesOld.length; i++) {
+
+                valorTotal += unitCountArticlesOld[i] + (unitCountArticlesOld[i] * (shipping / 100));
+        }
+
+
+
+
+    //--------   
+    
     let showTotalInnerHTML = "";
 
-        showTotalInnerHTML += `<p> TOTAL: ` + valorTotal + ` USD</p>`
+        showTotalInnerHTML += `<p> TOTAL + ENVÍO: ` + valorTotal.toFixed(2)  + ` USD </p>`
 
         document.getElementById('totalPriceAll').innerHTML = showTotalInnerHTML;
+
 }
 
-const buyAllMyCart = () =>{
-    alert("Su compra fue realizada con exito")
-}
-document.getElementById('buyAllMyCart').addEventListener("click", buyAllMyCart)
-
-
-const newProductstoCart = async() => {
+const newProductstoCart = async(shipping) => {
     const newCartJSON = await getJSONData(URL_NEW_CART);
         if (newCartJSON.status === "ok"){
-            showCart(newCartJSON.data)
-            showTotal(newCartJSON.data)
-        }
-        document.getElementById('countArticles0').addEventListener('click', ()=>{showTotal(newCartJSON.data)}) 
-        document.getElementById('countArticles0').addEventListener('keyup', ()=>{showTotal(newCartJSON.data)})
+            showCart(newCartJSON.data)         
 
-        document.getElementById('countArticles1').addEventListener('click', ()=>{showTotal(newCartJSON.data)}) 
-        document.getElementById('countArticles1').addEventListener('keyup', ()=>{showTotal(newCartJSON.data)}) 
+        }
 }
 newProductstoCart()
+
+
+const allCurrentlyPrice = async(shipping) => {
+    const newCartJSON = await getJSONData(URL_NEW_CART);
+        if (newCartJSON.status === "ok"){
+        
+            showTotal(newCartJSON.data, shipping)
+            
+        }
+        document.getElementById('countArticles0').addEventListener('click', ()=>{showTotal(newCartJSON.data, shipping)}) 
+        document.getElementById('countArticles0').addEventListener('keyup', ()=>{showTotal(newCartJSON.data, shipping)})
+
+        document.getElementById('countArticles1').addEventListener('click', ()=>{showTotal(newCartJSON.data, shipping)}) 
+        document.getElementById('countArticles1').addEventListener('keyup', ()=>{showTotal(newCartJSON.data, shipping)}) 
+}
+
+/*const trashArticleCart = async (index) => {
+    const newCartJSON = await getJSONData(URL_NEW_CART);
+
+        if (newCartJSON.status === "ok"){
+
+            newCartJSON.data.articles.splice(index, 1);
+
+            showCart(newCartJSON.data)
+
+        }
+
+};
+*/
+function myNewFunction() {
+
+let shippingType = []
+
+    for (let i = 0; i < document.fradios.shipping.length; i++){ 
+
+
+        if (document.fradios.shipping[i].checked) {
+
+            let shippingValue = document.fradios.shipping.value;
+            shippingType.shift(shippingValue); 
+            shippingType.push(shippingValue);
+            
+            break;
+        }
+
+  }   
+
+    allCurrentlyPrice(Number(shippingType[0]))
+
+}
+myNewFunction()
+
+//WAYS TO PAY
+
+const checkPaymentEntry = (paymentType) => {
+
+
+    const inputAddress  = document.getElementById('inputAddress').value;
+    const inputCountry  = document.getElementById('country').value;
+    const inputAddress2 = document.getElementById('inputAddress2').value; 
+    const inputCity     = document.getElementById('inputCity').value; 
+    const inputZip      = document.getElementById('inputZip').value; 
+
+    const getCountArticlesToCheck = document.querySelectorAll('.countArticlesClass'); //obtener CANTIDAD DE CADA PRODUCTO
+    
+
+    let there_is_zero = [];
+
+    for (let i = 0; i < getCountArticlesToCheck.length; i++) {   //almacenar valores con 0;
+
+        let valueCheck = [];
+
+        valueCheck.push(Number(getCountArticlesToCheck[i].value));
+        
+        const zero = valueCheck.find( asd => asd  === 0);     
+        
+        there_is_zero.push(zero)
+
+    }
+    
+
+        if (!there_is_zero.includes(0)) {  // no se ejecuta si existe un 0
+            if (inputAddress && inputAddress2 && inputCity && inputZip && inputCountry) {
+
+
+                if (paymentType === "bank") {
+                    const bankAccount   = document.getElementById('bankAccount').value 
+
+                    if (bankAccount) {
+                        alert("Cuenta bancaria aceptada!")
+
+                    setTimeout(() => {
+                              alert("Compra Realizada")
+                            }, 2000);            
+                    }
+                    else{
+                        alert("Por favor, completa todos los datos")
+                    }
+            }
+
+                else {
+                        const card_name   = document.getElementById('credit-card-name').value 
+                        const card_number = document.getElementById('credit-card-number').value 
+                        const card_month  = document.getElementById('credit-card-month').value 
+                        const card_year   = document.getElementById('credit-card-year').value
+                        const card_cvv    = document.getElementById('credit-card-cvv').value 
+
+                        if (card_name && card_number && card_month && card_year && card_cvv) {
+                            alert("Tarjeta aceptada")
+
+                        setTimeout(() => {
+                                  alert("¡Compra Realizada!")
+                                }, 2000);
+
+                        }
+                        else{
+                            alert("Por favor, completa todos los datos")
+                        }
+                }
+
+            }
+            else{
+                alert("Completa todos los datos, por favor.")
+            }
+
+        }
+
+        else{
+            alert("Revisa que ninguna cantidad este en 0")
+        }
+    
+    
+}
+
+
+
+
+
+
+

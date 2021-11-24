@@ -45,10 +45,11 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p class="userSpace d-inline"></p>
             </button>
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="cart.html">Mi carrito</a>
                 <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-                <a class="dropdown-item"id="deleteInfo">Cerrar sesión</a>  
+                <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a>
        </div>
     </div>
     </div>
@@ -75,21 +76,31 @@
     <div class="container">
     <section>
         <article class="myProfileData">
+          </br>
           <h2>Por favor completa tus datos</h2>
             </br>
-          <div class="col-sm-10">
-            <label class="ordenBlock">Nombre Completo<input class="form-control" type="text" name="name" id="myProfileData__name"></label>
-            <label class="ordenBlock">Apellido Completo<input class="form-control" type="text" name="name" id="myProfileData__lastname"></label>
-            <label class="ordenBlock">Edad<input class="form-control" type="Number" name="name" id="myProfileData__age"></label>
-            <label class="ordenBlock">E-mail<input class="form-control" type="text" name="name" id="myProfileData__email" placeholder="name@example.com"></label>
-            <div class="d-flex flex-column  align-items-center" id="showUserImg">
-              <label class="subir"><input type="file" name="file" id="myProfileImg" onchange="idontKnow(event)" class="uploadProfileImg" style='display: none;'>Subir Foto</label>
-            </div>      
+          <div class="row">
+            <label class="ordenBlock col-4">Nombre Completo<input class="form-control" type="text" name="name" id="myProfileData__name"></label>
+            <label class="ordenBlock col-4">Apellido Completo<input class="form-control" type="text" name="name" id="myProfileData__lastname"></label>
+            <label class="ordenBlock col-4">¿Cual es tu edad?<input class="form-control" type="Number" name="name" id="myProfileData__age"></label>
+            <label class="ordenBlock col-12 col-md-8 col-6 col-md-4">E-mail<input class="form-control col-6 col-md-4" type="text" name="name" id="myProfileData__email" placeholder="name@example.com"></label>
+            <label class="ordenBlock col-4">Teléfono de contacto<input class="form-control" type="number" name="name" id="myProfileData__phonenumber"></label>
+            
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="lapic"></div>
+            </div>
+            </br>
 
-            <button class="btn btn-primary mb-2" id="botonPrueba" onclick="getUserData()">Guardar datos</button>
+            <div class="row justify-content-md-center" id="showUserImg">
+                  <label class="subir" onchange="preview(event)"><input type="file" name="file" id="myProfileImg" onchange="showImg(event)"  class="uploadProfileImg" style='display: none;'>Subir Foto</label>  
+            </div>
 
+            <div class="row justify-content-md-center"> 
+                <button class="btn btn-primary" id="botonPrueba" onclick="getUserData()">Guardar datos</button>
+            </div> 
 
-          </div>
+         
 
         </article>
     </section>

@@ -5,31 +5,26 @@ const showUserData = (arrayInfoUser) => {
 	for(let arrayInfo of arrayInfoUser) {
 	
         myProfileZone += `
-       <div class="d-flex flex-column  align-items-center" id="showUserImg">
-            <img src="`+ arrayInfo.img + `" class="img-thumbnail"></img>
-       </div>
-            <div class="d-inline">
-
+        <div class="container">
+            
+                <div class="row justify-content-md-center">
+                    <div  id="showUserImg">
+                        <img src="`+ arrayInfo.img + `"  class="w-100"></img>
+                    </div> 
+                </div>
+            
+            <div class="row">
+                <div class="col-4"><p class="col-4"><p class="text-muted">Nombres:</p>              `+ arrayInfo.name +`</p></div>
+                <div class="col-4"><p class="col-4"><p class="text-muted">Apellidos:</p>            `+ arrayInfo.lastname +`</p></div>
+                <div class="col-4"><p class="col-4"><p class="text-muted">Edad:</p>                 `+ arrayInfo.age +` años</p></div>
+                <div class="col-4"><p class="col-4"><p class="text-muted">Email:</p>                `+ arrayInfo.useremail +`</p></div>
+                <div class="col-12 col-md-8 col-6 col-md-4"><p class="col-6 col-md-4"><p class="text-muted">Teléfono de contacto:</p> `+ arrayInfo.phonenumber +`</p></div>
+             </div>
+            <div class="row justify-content-md-center">
+                <button class="btn btn-primary col-sm-4" id="changeData" onclick="changeData()">Cambiar datos</button>
+             </div> 
                 </br>
-            	<div class="col">
-            		<p class="mb-1 "><p class="text-muted">Nombres:</p>		  		`+ arrayInfo.name +`</p>
-            	</div>
-                    
-            	<div class="col ">
-            		<p class="mb-1"><p class="text-muted">Apellidos:</p>		    `+ arrayInfo.lastname +`</p>
-            	</div>
-                    
-            	<div class="col">
-            		<p class="mb-1"><p class="text-muted">Edad:</p>			  	    `+ arrayInfo.age +` años</p>
-            	</div>
-                    
-            	<div class="col">
-            		<p class="mb-1"><p class="text-muted">Email:</p>            	`+ arrayInfo.useremail +`</p>
-        		</div>
-
-        		<button class="btn btn-primary mb-2" id="changeData" onclick="changeData()" >Cambiar datos</button>
-        	</div>
-        	
+        </div>
         `
     document.querySelector('.myProfileData').innerHTML = myProfileZone;
 		}
@@ -41,6 +36,7 @@ const getUserData = () => {
     const userLastName  = document.getElementById('myProfileData__lastname').value
     const userAge  = document.getElementById('myProfileData__age').value
     const userEmail = document.getElementById('myProfileData__email').value
+    const phoneNumber = document.getElementById('myProfileData__phonenumber').value
 
     let allUserInfo = JSON.parse(localStorage.getItem('userData'))
 
@@ -50,19 +46,13 @@ const getUserData = () => {
             
     	showUserData(JSON.parse(localStorage.getItem('userData')))
 
-
     }
 
-    else if (userName && userLastName && userAge && userEmail) {
+    else if (userName && userLastName && userAge && userEmail && phoneNumber) {
 
-
-        
-
-        let arrWithallUserInfo = [{name:userName,lastname:userLastName,age:userAge,useremail:userEmail,img:localStorage.getItem('recent-image')}] 
-        
-    	let setUserData = JSON.stringify(arrWithallUserInfo);
-    		
-    	localStorage.setItem('userData', setUserData);
+        let arrWithallUserInfo = [{name:userName,lastname:userLastName,age:userAge,useremail:userEmail,phonenumber:phoneNumber,img:localStorage.getItem('recent-image')}] 
+          		
+    	localStorage.setItem('userData', JSON.stringify(arrWithallUserInfo));
 
     	showUserData(JSON.parse(localStorage.getItem('userData')));
         
@@ -73,51 +63,20 @@ getUserData()
 //------------
 
 
-const idontKnow = (event) =>{
+const showImg = (event) =>{
 
-    var input = event.target;
+    let input = event.target;
 
             const reader = new FileReader();
 
             reader.addEventListener('load', () => {
-                let dataUrl = reader.result
-
-                console.log(dataUrl)
-                localStorage.setItem('recent-image', dataUrl );
-
-
-                const recentImageData = localStorage.getItem('recent-image');
-    
+                
+                localStorage.setItem('recent-image',reader.result );
+     
             })
 
             reader.readAsDataURL(input.files[0]);
 }
-
-/*
-document.getElementById('myProfileImg').addEventListener('change', function(){
-
-    
-
-            const reader = new FileReader();
-
-            reader.addEventListener('load', () => {
-                localStorage.setItem('recent-image', reader.result);
-
-
-                const recentImageData = localStorage.getItem('recent-image');
-                console.log(recentImageData)
-                let data = ""
-
-                data += `<img src="`+ recentImageData +`">`
-
-
-                document.getElementById('showUserImg').innerHTML = data;
-
-            })
-
-            reader.readAsDataURL(this.files[0]);
-});
-*/
 
 
 const changeData = () => {
@@ -129,4 +88,6 @@ const changeData = () => {
 	window.location.replace("my-profile.html");
 
 }
+
+
 
