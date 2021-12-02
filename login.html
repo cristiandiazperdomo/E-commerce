@@ -14,7 +14,8 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
- 
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="103144629243-kklorpirsi8k1gl5mnjlkmtds3rknffc.apps.googleusercontent.com">
 
   <style>
@@ -31,63 +32,67 @@
       padding-bottom: 40px;
       background-color: #f5f5f5;
     }
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-
-    }
     
     
   </style>
 
 </head>
+<body class="text-center d-inline">
 
-<body class="text-center">
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  
-  <!--  <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  -->
-  
-  <img src="img/login.png" class="img-fluid" alt="Responsive image">
+<section class="vh-100 pl-10">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb-0 me-3">Entrar con</p>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+             <div class="g-signin2" data-onsuccess="onSignIn" data-prompt="select_account"></div>
+            </button>
+          </div>
 
-<div id="container">
-  <form>
-  <div class="form-row align-items-center">
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInput">Name</label>
-      <input type="text" class="form-control mb-2" id="txtuser"  placeholder="Nombre de Usuario">
-    </div>
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInputGroup" ></label>
-      <div class="input-group mb-2">
-       
-        <input type="text" class="form-control" id="txtpassword" placeholder="Contraseña">
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">O</p>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="txtuser"  class="form-control form-control-lg"
+              placeholder="Nombre de Usuario" />
+            <label class="form-label" for="form3Example3"></label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" type="text" id="txtpassword" class="form-control form-control-lg"
+              placeholder="Contraseña"/>
+            <label class="form-label" for="form3Example4"></label>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary mb-2" id="entrar" onclick="loginNormal();"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Entrar</button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="col-auto">
-      
-    </div>
-    <div class="col-auto">
-      <button type="button" class="btn btn-primary mb-2" id="entrar">Entrar</button> <a href="file:///D:/JAP/PROYECTO/OBLIGATORIO%200/index.html"></a>
-      <div class="g-signin2" data-onsuccess="onSignIn" data-prompt="select_account"></div>
-    </div>
   </div>
-</form>
-</div>
-  
-  
-<!-- <script src="js/init.js"></script>-->
-  <script src="js/login.js"></script>
-  <script>
+</section>
 
-    </script>
+
+</body>
+  
+  <script src="js/login.js"></script>
+
+  <!--<script src="js/init.js"></script>-->
+    <script></script>
 </body>
 </html>
