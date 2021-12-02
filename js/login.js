@@ -2,7 +2,9 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-const arr =[]
+const arr = []
+
+alert("El login con google no funcioná de la mejor manera, al cerrar sesión, cierra la cuenta de todos los servicíos de Google(No probar).")
 
 /*DO not*/
 const loginNormal = () => {
@@ -13,52 +15,47 @@ const loginNormal = () => {
 
   if (name && password) {
     arr.push({
-      name, password,
+      name,
+      password,
 
     })
-    
     let getData = JSON.stringify(arr);
     localStorage.setItem("DATA", getData);
-    
     alert("INICIO DE SESIÓN, REALIZADO CORRECTAMENTE ✔️.");
-    window.location.replace("index.html");    
-  } 
-  else {
+    window.location.replace("index.html");
+  } else {
     alert("Nombre y contraseña no deben ser vacíos");
   }
 };
 
 function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        let profile = googleUser.getBasicProfile();
-        /*console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+  // Useful data for your client-side scripts:
+  let profile = googleUser.getBasicProfile();
+  /*console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log("Image URL: " + profile.getImageUrl());
+  console.log("Email: " + profile.getEmail());
 
         
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);*/
+  // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);*/
 
-        if (profile.getName() && profile.getGivenName()) {
-           localStorage.setItem('userDataGoogle', JSON.stringify(profile));
-           alert("INICIO DE SESIÓN, REALIZADO CORRECTAMENTE ✔️.");
-           window.location.replace("index.html");
-        }
-        else{
-          alert("Algo salio mal, vuelva a intentarlo mas tarde. :(")
-        }
+
+  //Do stuff here after the user has been signed out, you can still authenticate the token with Google on the server side
+
+  if (profile.getName() && profile.getGivenName()) {
+    localStorage.setItem('userDataGoogle', JSON.stringify(profile));
+    alert("INICIO DE SESIÓN, REALIZADO CORRECTAMENTE ✔️.");
+    window.location.replace("index.html");
+  } else {
+    alert("Algo salio mal, vuelva a intentarlo mas tarde. :(")
+  }
 
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("entrar").addEventListener("click", loginNormal);
- 
-});
 
 
 
