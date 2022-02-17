@@ -28,21 +28,19 @@
                 <p class="userSpace d-inline"></p>
             </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="cart.html">Mi carrito</a>
-                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-                <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a> 
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a> 
        </div>
     </div>
     </div>
   </nav>
   <div class="container">
-<!--<div id="pruebatime"><div>-->
-<nav>  
+    <nav>  
       <div class="col">
             <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
             <button  class="btnes btn btn-light  mb-1">Buscar</button>
             <button  class="btnDelete btn btn-light mb-1">Borrar</button>
-      
             <div class="content-search">
                 <div class="content-table"> 
                     <table class="table">
@@ -69,58 +67,42 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-
-    <div id="producto"> </div>
-<div class="text-center p-4">
-            <h2>Productos Relacionados</h2>
-            
-        </div>
-
-<div>
-    
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" id="rela">
-  
-        </div>
-  
+    <div id="producto"></div>
+    <div class="text-center p-4">
+        <h2>Productos Relacionados</h2>
     </div>
-</div>
-                    </br>
-    <section >
-      <div class="border">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" id="relatedProd"></div>
+    </div>
+    </br>
+    <section>
+        <div class="border">
           <div class="text-center p-4">
               <h2 class="h4">Comentarios</h2>
           </div>
-      <div class="content-table"> 
-                    <table class="table">
-                        <thead>
-                            <tr class="comments">
-                                
-                            </tr>
-                        </thead>
-                    </table>
-                </div> 
-             </div>
+        <div class="content-table-comments"> 
+            <table class="table">
+                <thead>
+                    <tr class="comments"></tr>
+                </thead>
+            </table>
+        </div> 
+     </div>
     </section>
-                    </br>
-    <div class="border">
-      
+    </br>
+    <form class="border">
         <div class="text-center p-3">
           <h2 class="h6 ">Deja tu opinión acerca de este producto.</h2>
         </div>
-
         <div class="col-sm-10">
           <label class="ordenBlock">OPINIÓN:     <input class="form-control" type="text" name="asd" id="entradaDescription"></label>
           <label class="ordenBlock">PUNTUACIÓN:  <input class="form-control" type="number" name="asd" id="entradaScore" min="0" max="5"></label>
         </div>
-
         <div class="col-sm-10">
-            <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+            <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
         </div>
         <br>
-    </div>
-  
+    </form>
 </div>
   </br>
   <footer class="text-muted bg-light">
@@ -142,5 +124,4 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
 </body>
-
 </html>
