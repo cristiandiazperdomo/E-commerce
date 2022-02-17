@@ -1,9 +1,39 @@
+.normalize-list{
+  padding: 0 ;
+  margin: 0 ;
+}
+.normalize-list {
+  list-style: none;
+}
+
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
 
 .jumbotron .display-4{
     font-weight: bold;
+}
+.options{
+  display: flex;
+  justify-content: flex-start;
+}
+@keyframes routeTrash {
+  0%{ transform: rotate(-10deg) }
+  50%{ transform: rotate(20deg) }
+  100%{ transform: rotate(-20deg) }
+}
+.reddit{
+  display: flex;
+}
+.cancelordoit{
+  display: flex;
+  align-items: center;
+}
+.cancelordoit li {
+  list-style: none;
+}
+.options svg:hover{
+  animation: routeTrash .9s infinite;
 }
 
 .jumbotron {
@@ -147,21 +177,33 @@ a.custom-card:hover {
   display: inline;
   width: 85%;
 }
-.comentarios{
+.staticcomments{
   display: block;
+}
+.commentsTd{
+  
+  display: flex;
+  justify-content: space-between;
 }
 .ordenBlock{
 display: block;
 }
 
 .subir{
-    padding: 5px 10px;
-    background: #f55d3e;
-    color:#fff;
-    border:0px solid #fff;
+  padding: 5px 10px;
+  background: #f55d3e;
+  color:#fff;
+  border:0px solid #fff;
 }
  
 .subir:hover{
     color:#fff;
     background: #f7cb15;
+}
+.content-table-comments {
+  overflow-y: scroll;
+  height: 480px;
+}
+.commentsTd p {
+  margin: 0 !important;
 }

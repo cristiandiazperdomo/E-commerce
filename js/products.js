@@ -40,7 +40,6 @@ function sortProducts(criteria, array){
         });
     }
     
-
     return result;
 }
 
@@ -54,25 +53,24 @@ function showProductList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(productos.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-        <div class="list-group">
-        <a class="list-group-item list-group-item-action" href="product-info.html">
-            <div class="row" >
-                <div class="col-3">
-                    <img  src="` + productos.imgSrc + `" alt="` + productos.desc + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + productos.name + `</h4>
-                        <small class="text-muted">` + productos.soldCount + ` artículos</small>
+                <div class="list-group">
+                <a class="list-group-item list-group-item-action" href="product-info.html">
+                    <div class="row" >
+                        <div class="col-3">
+                            <img  src="` + productos.imgSrc + `" alt="` + productos.desc + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">` + productos.name + `</h4>
+                                <small class="text-muted">` + productos.soldCount + ` artículos</small>
+                            </div>
+                        <small class="text-muted">` + productos.description + ` artículos</small>
+                        </div>
+                       <small class="text-muted">` + productos.cost + productos.currency + `</small>
                     </div>
-                <small class="text-muted">` + productos.description + ` artículos</small>
+                    </a>
                 </div>
-               <small class="text-muted">` + productos.cost + productos.currency + `</small>
-            </div>
-            </a>
-        </div>
-        
-        `
+            `
         }
         document.getElementById("container-div__productsName").innerHTML = htmlContentToAppend;
     }

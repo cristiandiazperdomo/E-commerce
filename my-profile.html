@@ -32,7 +32,6 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
-
 <body>
  <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -40,18 +39,16 @@
       <a class="py-3 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-3 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-3 d-none d-md-inline-block" href="sell.html">Vender</a>
-    
-      <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p class="userSpace d-inline"></p>
             </button>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="cart.html">Mi carrito</a>
                 <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
                 <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a>
-       </div>
-    </div>
+            </div>
+        </div>
     </div>
   </nav>
  <nav>  
@@ -59,7 +56,6 @@
             <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
             <button  class="btnes btn btn-light  mb-1">Buscar</button>
             <button  class="btnDelete btn btn-light mb-1">Borrar</button>
-      
             <div class="content-search">
                 <div class="content-table"> 
                     <table class="table">
@@ -84,32 +80,24 @@
             <label class="ordenBlock col-4">Apellido Completo<input class="form-control" type="text" name="name" id="myProfileData__lastname"></label>
             <label class="ordenBlock col-4">¿Cual es tu edad?<input class="form-control" type="Number" name="name" id="myProfileData__age"></label>
             <label class="ordenBlock col-12 col-md-8 col-6 col-md-4">E-mail<input class="form-control col-6 col-md-4" type="text" name="name" id="myProfileData__email" placeholder="name@example.com"></label>
-            <label class="ordenBlock col-4">Teléfono de contacto<input class="form-control" type="number" name="name" id="myProfileData__phonenumber"></label>
-            
+            <label class="ordenBlock col-4">Teléfono de contacto<input class="form-control" type="number" name="name" id="myProfileData__phonenumber"></label>      
             </div>
             <div class="row justify-content-md-center">
                 <div class="lapic"></div>
             </div>
             </br>
-
             <div class="row justify-content-md-center" id="showUserImg">
                   <label class="subir" onchange="preview(event)"><input type="file" name="file" id="myProfileImg" onchange="showImg(event)"  class="uploadProfileImg" style='display: none;'>Subir Foto</label>  
             </div>
-
             <div class="row justify-content-md-center"> 
                 <button class="btn btn-primary" id="botonPrueba" onclick="getUserData()">Guardar datos</button>
             </div> 
-
-         
-
         </article>
     </section>
     </div>
   <footer class="text-muted bg-light">
-    
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>

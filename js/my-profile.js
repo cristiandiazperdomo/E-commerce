@@ -4,33 +4,29 @@ const showUserData = () => {
 
     if (arrayInfoUser) {
 
-
-
         let myProfileZone = '';
 
         for (let arrayInfo of arrayInfoUser) {
 
             myProfileZone += `
-        <div class="container">
-            
-                <div class="row justify-content-md-center">
-                    <div  id="showUserImg">
-                        <img src="` + arrayInfo.img + `"  class="w-100"></img>
+                <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div  id="showUserImg">
+                                <img src="` + arrayInfo.img + `"  class="w-100"></img>
+                            </div> 
+                        </div> 
+                    <div class="row">
+                        <div class="col-4"><p class="col-4"><p class="text-muted">Nombres:</p>              ` + arrayInfo.name + `</p></div>
+                        <div class="col-4"><p class="col-4"><p class="text-muted">Apellidos:</p>            ` + arrayInfo.lastname + `</p></div>
+                        <div class="col-4"><p class="col-4"><p class="text-muted">Edad:</p>                 ` + arrayInfo.age + ` años</p></div>
+                        <div class="col-4"><p class="col-4"><p class="text-muted">Email:</p>                ` + arrayInfo.useremail + `</p></div>
+                        <div class="col-12 col-md-8 col-6 col-md-4"><p class="col-6 col-md-4"><p class="text-muted">Teléfono de contacto:</p> ` + arrayInfo.phonenumber + `</p></div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <button class="btn btn-primary col-sm-4" id="changeData" onclick="changeData()">Cambiar datos</button>
                     </div> 
+                    </br>
                 </div>
-            
-            <div class="row">
-                <div class="col-4"><p class="col-4"><p class="text-muted">Nombres:</p>              ` + arrayInfo.name + `</p></div>
-                <div class="col-4"><p class="col-4"><p class="text-muted">Apellidos:</p>            ` + arrayInfo.lastname + `</p></div>
-                <div class="col-4"><p class="col-4"><p class="text-muted">Edad:</p>                 ` + arrayInfo.age + ` años</p></div>
-                <div class="col-4"><p class="col-4"><p class="text-muted">Email:</p>                ` + arrayInfo.useremail + `</p></div>
-                <div class="col-12 col-md-8 col-6 col-md-4"><p class="col-6 col-md-4"><p class="text-muted">Teléfono de contacto:</p> ` + arrayInfo.phonenumber + `</p></div>
-             </div>
-            <div class="row justify-content-md-center">
-                <button class="btn btn-primary col-sm-4" id="changeData" onclick="changeData()">Cambiar datos</button>
-             </div> 
-                </br>
-        </div>
         `
             document.querySelector('.myProfileData').innerHTML = myProfileZone;
         }
@@ -50,7 +46,7 @@ const getUserData = () => {
 
     let arrWithallUserInfo = [];
 
-    if (arrayInfoUser) { //is there user information?
+    if (arrayInfoUser) {
 
         showUserData()
 
@@ -73,8 +69,6 @@ const getUserData = () => {
 
 }
 getUserData()
-//------------
-
 
 const showImg = (event) => {
 
