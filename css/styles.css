@@ -186,19 +186,24 @@ a.custom-card:hover {
   justify-content: space-between;
 }
 .ordenBlock{
-display: block;
+  display: block;
 }
 
 .subir{
-  padding: 5px 10px;
-  background: #f55d3e;
-  color:#fff;
-  border:0px solid #fff;
+  border: 5px solid #f8f9fa;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-top: -5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
  
 .subir:hover{
-    color:#fff;
-    background: #f7cb15;
+  opacity: 60%;
+  background: #f8f9fa;
 }
 .content-table-comments {
   overflow-y: scroll;
@@ -206,4 +211,39 @@ display: block;
 }
 .commentsTd p {
   margin: 0 !important;
+}
+/*DESCRIPTION PROFILE*/
+/*.description{
+  background: #666;
+}
+*/
+/*BANNER*/
+.banner{
+  width: 100%;
+ }
+.banner img{
+  
+
+  display: flex;
+  justify-content: center;
+
+  height: 160px;
+}
+/*PROFILE PICTURE*/
+
+.profile-picture{
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+
+}
+
+.profile-picture img{
+  border: 5px solid #f8f9fa;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-top: -5rem;
 }
