@@ -70,30 +70,32 @@
        </div>
     </nav>
     <div class="container">
-    <section>
-        <article class="myProfileData">
-          </br>
-          <h2>Por favor completa tus datos</h2>
-            </br>
-          <div class="row">
-            <label class="ordenBlock col-4">Nombre Completo<input class="form-control" type="text" name="name" id="myProfileData__name"></label>
-            <label class="ordenBlock col-4">Apellido Completo<input class="form-control" type="text" name="name" id="myProfileData__lastname"></label>
-            <label class="ordenBlock col-4">¿Cual es tu edad?<input class="form-control" type="Number" name="name" id="myProfileData__age"></label>
-            <label class="ordenBlock col-12 col-md-8 col-6 col-md-4">E-mail<input class="form-control col-6 col-md-4" type="text" name="name" id="myProfileData__email" placeholder="name@example.com"></label>
-            <label class="ordenBlock col-4">Teléfono de contacto<input class="form-control" type="number" name="name" id="myProfileData__phonenumber"></label>      
-            </div>
-            <div class="row justify-content-md-center">
-                <div class="lapic"></div>
-            </div>
-            </br>
-            <div class="row justify-content-md-center" id="showUserImg">
-                  <label class="subir" onchange="preview(event)"><input type="file" name="file" id="myProfileImg" onchange="showImg(event)"  class="uploadProfileImg" style='display: none;'>Subir Foto</label>  
-            </div>
-            <div class="row justify-content-md-center"> 
-                <button class="btn btn-primary" id="botonPrueba" onclick="getUserData()">Guardar datos</button>
-            </div> 
-        </article>
-    </section>
+        <section>
+            <article class="myProfileData" style="display:flex;
+            justify-content: center;">
+                <div class="card mb-3 w-100">
+                    <picture class="banner">  
+                        <img class="card-img-top" src="https://geekflare.com/wp-content/uploads/2021/09/520401-pure-black-background-wallpaper.jpg" alt="user profile">
+                    </picture>  
+                    <picture class="profile-picture" style="
+                    position: relative;
+                    ">     
+                        <div class="card-profile">
+                            <img class="card-img-top" src="https://png.pngitem.com/pimgs/s/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="user profile">
+                        </div> 
+                        <label class="subir" onchange="showProfileImg(event)" style="position: absolute;">
+                            <input type="file" name="file" id="myProfileImg" class="uploadProfileImg" style='display: none;'/>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#000000"><path d="M86,7.16667c-0.82935,0 -1.65169,0.29045 -2.32357,0.86784l-25.08333,21.5c-1.50472,1.28776 -1.67969,3.55184 -0.39193,5.05306c1.30876,1.51172 3.54834,1.66919 5.03906,0.37793l19.17643,-16.41895v99.70345c0,1.98063 1.6027,3.58333 3.58333,3.58333c1.98063,0 3.58333,-1.6027 3.58333,-3.58333v-99.70345l19.17643,16.41895c0.67188,0.58089 1.49773,0.86784 2.32357,0.86784c1.00781,0 2.00163,-0.41642 2.71549,-1.24577c1.28776,-1.50122 1.1128,-3.7653 -0.39192,-5.05306l-25.08333,-21.5c-0.67187,-0.57739 -1.49422,-0.86784 -2.32357,-0.86784zM21.5,57.33333c-7.90153,0 -14.33333,6.4283 -14.33333,14.33333v78.83333c0,7.90503 6.4318,14.33333 14.33333,14.33333h129c7.90153,0 14.33333,-6.42831 14.33333,-14.33333v-78.83333c0,-7.90503 -6.4318,-14.33333 -14.33333,-14.33333h-46.58333c-1.98063,0 -3.58333,1.6027 -3.58333,3.58333c0,1.98063 1.6027,3.58333 3.58333,3.58333h46.58333c3.95427,0 7.16667,3.2159 7.16667,7.16667v78.83333c0,3.95077 -3.2124,7.16667 -7.16667,7.16667h-129c-3.95426,0 -7.16667,-3.2159 -7.16667,-7.16667v-78.83333c0,-3.95076 3.2124,-7.16667 7.16667,-7.16667h46.58333c1.98063,0 3.58333,-1.6027 3.58333,-3.58333c0,-1.98063 -1.6027,-3.58333 -3.58333,-3.58333z"></path></g></g></svg>
+                        </label>
+                    </picture>
+                    <div class="card-body">
+                        <div class="description">
+                            <!--JS AND HTML-->
+                        </div>
+                    </div>
+                </div>  
+            </article>
+        </section>
     </div>
   <footer class="text-muted bg-light">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
