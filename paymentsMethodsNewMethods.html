@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark" style="height: 60px;">
+    
+  </nav>
+  <div class="container">
+    <section>
+        <article>
+            <div class="modal-body modal-body-clean">
+            <!-- For demo purpose -->
+            <div class="row mb-4">
+               <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-6">Seleccioná tu forma de pago</h1>
+                </div>
+            </div> <!-- End -->     
+            <div class="mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3" >
+                            <li class="nav-item"><a data-toggle="pill" href="#credit-card" class="nav-link active"> 
+                            <i class="fas fa-credit-card mr-2"></i> Tarjeta de Crédito </a></li>
+                            <li class="nav-item"><a data-toggle="pill" href="#net-banking" class="nav-link"> 
+                            <i class="fas fa-mobile-alt mr-2"></i> Banco </a> </li>
+                        </ul>
+                    </div><!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+                        <!-- credit card info-->
+                        <div id="credit-card" class="tab-pane fade show active pt-3">
+                            <div class="form-group"> <label for="username">
+                                <h6>Nombre</h6>
+                                </label>
+                                <input
+                                type="text" 
+                                name="username" 
+                                placeholder="Nombre"  
+                                class="form-control" 
+                                id="credit-card-name"> 
+                            </div>
+                        <div class="form-group">
+                            <label for="cardNumber"><h6>Número de tarjeta</h6></label>
+                            <div class="input-group"> <input type="text" name="cardNumber" placeholder="Número de tarjeta" class="form-control " required  value="454803200393301" id="credit-card-number">
+                                <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i>         <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group"><label>
+                                    <span class="hidden-xs"><h6>Fecha de expiración</h6></span></label>
+                                    <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control"  value="12" id="credit-card-month"> <input type="number" placeholder="AA" name="" class="form-control"  value="20" 
+                                        id="credit-card-year"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group mb-4">
+                                    <label data-toggle="tooltip" title="Tres dígitos detras de tu tarjeta">
+                                        <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                    </label> 
+                                    <input type="text"  class="form-control"  value="118" id="credit-card-cvv"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-right">
+                                <button class="btn btn-primary" onclick="checkPaymentEntry('card')">Finalizar Compra!</button>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- End -->
+                    <!-- bank transfer info -->
+                    <div id="net-banking" class="tab-pane fade pt-3">     
+                        <div class="form-group">
+                            <p>Número de cuenta</p>
+                            <input type="form" name="accountNumber"id="bankAccount" class="form-control">
+                            </br>
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-right">
+                                <!-- Button trigger modal -->
+                                <button class="btn btn-primary" onclick="checkPaymentEntry('bank')">Finalizar Compra!</button>
+                            </div>
+                        </div>
+                        </br>
+                    </div>
+                </div>
+        </article>
+        <!-- Modal Finish Buy-->
+        <div class="modal show modal-backgroundcolor" id="backModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-success d-flex justify-content-center">
+                <h5 class="modal-title" id="exampleModalLabel">¡Tu compra ha sido exitosa!</h5>
+              </div>
+              <div class="modal-body">
+                <div class="inside-modal-header d-flex justify-content-center">
+                    <picture>
+                        <img src="img/Inbox _Two.svg" alt="Inbox">
+                    </picture>
+                </div>
+                <div class="inside-modal-footer d-flex justify-content-center">
+                    <p>Te avisaremos cuando tu producto valla en camino.</p> 
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="index.html" class="btn btn-primary" >Volver a la página principal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Modal Finish Buy-->
+        <div class="modal show modal-backgroundcolor" id="spinner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-success d-flex justify-content-center">
+                <h5 class="modal-title" id="exampleModalLabel">¡Tu compra ha sido exitosa!</h5>
+              </div>
+              <div class="modal-body">
+                <div class="inside-modal-header d-flex justify-content-center">
+                    <picture>
+                        <img src="img/Inbox _Two.svg" alt="Inbox">
+                    </picture>
+                </div>
+                <div class="inside-modal-footer d-flex justify-content-center">
+                    <p>Te avisaremos cuando tu producto valla en camino.</p> 
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="index.html" class="btn btn-primary" >Volver a la página principal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>
+  </br>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/paymentsMethodsNewMethods.js"></script>
+</body>
+</html>

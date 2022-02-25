@@ -33,7 +33,6 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
-
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -41,15 +40,14 @@
       <a class="py-3 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-3 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-3 d-none d-md-inline-block" href="sell.html">Vender</a>
-    
       <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <p class="userName d-inline"></p>
-            </button>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p class="userName d-inline"></p>
+        </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="cart.html">Mi carrito</a>
-                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-                <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a>  
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a>  
        </div>
     </div>
     </div>
@@ -60,7 +58,6 @@
             <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
             <button  class="btnes btn btn-light  mb-1">Buscar</button>
             <button  class="btnDelete btn btn-light mb-1">Borrar</button>
-      
             <div class="content-search">
                 <div class="content-table"> 
                     <table class="table">
@@ -78,185 +75,48 @@
     <h2>Mi carrito</h2>
       <section >
           <div class="border" id="itemsCart">
-
+            <!--HTML & JS-->
           </div>
       </section>
     </br>
     <section class="ml-5">
-        <article class="ml-5">
-            <div class="row">
-              <form name="fradios" id="fradios" class="form-check form-check-inline">
-              <div class="col-lg-4">
-                  <label onclick="shippingType()">
-                  <img src="img/envios.png" class="col-lg-4">
-                  <input type="radio" name="shipping" value="15" checked> 
-                  </label>
-                  Premium (2-5 días) - Costo del 15% sobre el subtotal.
-              </div>
-              <div class="col-lg-4">
-                  <label onclick="shippingType()">
-                  <img src="img/envios.png" class="col-lg-4">
-                  <input type="radio" name="shipping" value="7">
-                  </label>
-                  Express (5-8 días) - Costo del 7% sobre el subtotal.
-              </div>
-              <div class="col-lg-4">
-                  <label onclick="shippingType()" >
-                  <img src="img/envios.png" class="col-lg-4">
-                  <input type="radio" name="shipping" value="5"> 
-                  </label>
-                  Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
-              </div>
-              </form>
+      <article class="ml-5">
+        <div class="row">
+          <form name="fradios" id="fradios" class="form-check form-check-inline">
+            <div class="col-lg-4">
+              <label onclick="shippingType()">
+                <img src="img/envios.png" class="col-lg-4">
+                <input type="radio" name="shipping" value="15" checked> 
+              </label>
+              Premium (2-5 días) - Costo del 15% sobre el subtotal.
             </div>
-
-            </br>
-       </article>
+            <div class="col-lg-4">
+                <label onclick="shippingType()">
+                <img src="img/envios.png" class="col-lg-4">
+                <input type="radio" name="shipping" value="7">
+                </label>
+                Express (5-8 días) - Costo del 7% sobre el subtotal.
+            </div>
+            <div class="col-lg-4">
+              <label onclick="shippingType()" >
+              <img src="img/envios.png" class="col-lg-4">
+                <input type="radio" name="shipping" value="5"> 
+                </label>
+                Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
+            </div>
+          </form>
+        </div>
+        </br>
+      </article>
     </section>
-     
-      <section id="totalAll">
-          <div class="border d-flex justify-content-around">
-              
-              <label id="totalPriceAll"  class="pt-3"></label>
-            <!-- Button trigger modal -->
-              <button type="button" class="btn btn-link" id="buyAllMyCart" data-toggle="modal" data-target="#exampleModal">¡Realizar Compra!</button>
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Últimos pasos...</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="text-center">
-                            <h1>Dirección</h1>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputAddress">Pais</label>
-                          <input type="text" class="form-control" id="country" placeholder="Pais">
-                        </div>
-                        <div class="form-group">
-                          <label for="inputAddress">Dirección 1</label>
-                          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Calle Principal" value="1234 Calle Principal">
-                        </div>
-                        <div class="form-group">
-                          <label for="inputAddress2">Dirección 2</label>
-                          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, estudio, o piso" value="Apartamento, estudio, o piso">
-                        </div>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputCity">Ciudad</label>
-                            <input type="text" class="form-control" value="Melo" id="inputCity">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="inputZip">Código Postal</label>
-                            <input type="number" class="form-control" value="38000"  id="inputZip">
-                          </div>
-                        </div> 
-                      </form>
-                      <div class="modal-body modal-body-clean">
-    
-                      <!-- For demo purpose -->
-                      <div class="row mb-4">
-                          <div class="col-lg-8 mx-auto text-center">
-                              <h1 class="display-6">Seleccioná tu forma de pago</h1>
-                          </div>
-                      </div> <!-- End -->
-                     
-                          <div class="mx-auto">
-                              <div class="card ">
-                                  <div class="card-header">
-                                      <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
-                                          <!-- Credit card form tabs -->
-                                        
-                                          <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3" >
-                                              <li class="nav-item"> <a data-toggle="pill" href="#credit-card"  class="nav-link active"> 
-                                              <i class="fas fa-credit-card mr-2"></i> Tarjeta de Crédito </a> </li>
-                                              <li class="nav-item"> <a data-toggle="pill" href="#net-banking"  class="nav-link"> 
-                                              <i class="fas fa-mobile-alt mr-2"></i> Banco </a> </li>
-                                          </ul>
-                                        
-                                      </div> <!-- End -->
-                                      <!-- Credit card form content -->
-                                      <div class="tab-content">
-                                          <!-- credit card info-->
-                                          <div id="credit-card" class="tab-pane fade show active pt-3">
-                                              
-                                                  <div class="form-group"> <label for="username">
-                                                          <h6>Nombre</h6>
-                                                      </label> <input
-                                                      type="text" 
-                                                      name="username" 
-                                                      placeholder="Nombre"  
-                                                      class="form-control" 
-                                                      id="credit-card-name"> </div>
-                                                  <div class="form-group"> <label for="cardNumber">
-                                                          <h6>Número de tarjeta</h6>
-                                                      </label>
-                                                      <div class="input-group"> <input type="text" name="cardNumber" placeholder="Número de tarjeta" class="form-control " required  value="454803200393301" id="credit-card-number">
-                                                          <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
-                                                      </div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-sm-8">
-                                                          <div class="form-group"> <label><span class="hidden-xs">
-                                                                      <h6>Fecha de expiración</h6>
-                                                                  </span></label>
-                                                              <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control"  value="12" id="credit-card-month"> <input type="number" placeholder="AA" name="" class="form-control"  value="20" id="credit-card-year"> </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-sm-4">
-                                                          <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
-                                                                  <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                                              </label> <input type="text"  class="form-control"  value="118" id="credit-card-cvv"> </div>
-                                                              
-                                                      </div>
-                                                      
-                                                  </div>
-                                                  
-                                                  <div class="card-footer">
-                                                <div class="text-right">
-                                                        <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
-                                                        <button class="btn btn-primary" onclick="checkPaymentEntry('card')" data-toggle="modal" data-target="#exampleModal">Finalizar Compra!</button>
-                                                      </div>
-                                          </div>
-                                      </div> <!-- End -->
-                                      
-                                      <!-- bank transfer info -->
-                            <div id="net-banking" class="tab-pane fade pt-3">
-                                         
-                                          <div class="form-group">
-                                            <p>Número de cuenta</p>
-                                            <input type="form" name="accountNumber"id="bankAccount" class="form-control">
-                                                </br>
-                                              <p>
-                                          </div>
-                                          <div class="card-footer">
-                                            <div class="text-right">
-                                                  <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
-                                                  <button class="btn btn-primary" onclick="checkPaymentEntry('bank')" data-toggle="modal" data-target="#exampleModal">Finalizar Compra!</button>
-                                              </div>
-                                            </div>
-                              
-                                </br>
-                          </div>
-                            </section>
-                    </article>
-  </div>
-  <!--
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
--->
+    <section id="totalAll">
+      <div class="border d-flex justify-content-around">
+        <label id="totalPriceAll"  class="pt-3"></label>
+        <a type="button" class="btn btn-link" style="display: flex; align-items: center;" href="cityAddressFormnewAddress.html" id="shopping-end">¡Realizar Compra!</a>
+      </div>             
+    </section>
+  </article>
+</div>
 </br>
 <footer class="text-muted bg-light">
       <div class="container">
@@ -281,5 +141,4 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>
-
 </html>
