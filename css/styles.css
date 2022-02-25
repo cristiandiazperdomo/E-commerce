@@ -188,6 +188,10 @@ a.custom-card:hover {
 .ordenBlock{
   display: block;
 }
+.each-price-product{
+  width: 64px;
+  text-align: center;
+}
 
 .subir{
   border: 5px solid #f8f9fa;
@@ -237,4 +241,50 @@ a.custom-card:hover {
   width: 140px;
   height: 140px;
   margin-top: -5rem;
+}
+/*BUY SOMETHING*/
+
+.products-info{
+  overflow-y: scroll;
+  height: 260px;
+}
+
+.continueProcess{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.modal-backgroundcolor{
+  background-color: rgba(0,0,0, .6);
+}
+.alert-thereAreAllData{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+@media all and (max-width: 765px){
+  .container-address-shipping{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+  .container-form-address{
+    width: 300px !important;
+    padding: 0 !important;
+  }
+  .container-products-info{
+    padding: 20px 0 0 0 !important;
+    width: 300px !important;
+  }
+  .container-products-info .products-info{
+    padding: 0 !important;
+
+  }
 }
