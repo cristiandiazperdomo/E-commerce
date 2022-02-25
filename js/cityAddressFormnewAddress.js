@@ -1,5 +1,5 @@
-const URL_GET = "http://localhost:3000/tobuy"
-const URL_SHIPPING = "http://localhost:3000/shipping"
+const URL_GET = "https://mysterious-cove-37583.herokuapp.com/tobuy"
+const URL_SHIPPING = "https://mysterious-cove-37583.herokuapp.com/shipping"
 
 let elementsOnArray = [];
 let shippingArray = [];

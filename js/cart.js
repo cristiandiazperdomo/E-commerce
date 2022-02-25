@@ -1,5 +1,5 @@
-const URL_NEW_CART = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
-const URL_GET = "http://localhost:3000/tobuy"
+const URL_NEW_CART = "https://mysterious-cove-37583.herokuapp.com/cart"
+const URL_GET = "https://mysterious-cove-37583.herokuapp.com/tobuy"
 
 let getCountArticlesToCheck = [];
 
