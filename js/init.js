@@ -9,14 +9,14 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-const form = document.querySelector('.form')
+const searchForm = document.querySelector('.form')
 const results = document.querySelector('.resultado')
 
 const filterProducts = async () => {
 
-    results.innerHTML = '';
+    results.innerHTML = "";
 
-    const texto = form.value.toLowerCase();
+    const texto = searchForm.value.toLowerCase();
 
     let currentCategories = await getJSONDataUnCharge(PRODUCTS_URL);
 
@@ -43,8 +43,6 @@ const filterProducts = async () => {
     }
 
 }
-
-const cleanSearchBar = () => results.innerHTML = "";
 
 let isLogged = JSON.parse(localStorage.getItem('DATA'));
 
@@ -91,10 +89,6 @@ var getJSONData = function(url) {
         });
 }
 
-function logOut() {
-    localStorage.removeItem('DATA');
-    window.location.replace("index.html");
-}
 
 let getJSONDataUnCharge = function(url) { //SPINNERLESS TO EVENT KEYUP
     var result = {};
@@ -122,16 +116,30 @@ let getJSONDataUnCharge = function(url) { //SPINNERLESS TO EVENT KEYUP
 
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+const logOut = () => {
+    localStorage.removeItem('DATA');
+    window.location.replace("index.html");
+}
+
+const addEventsListeners = () => {
+
+    //FORM EVENTS
+    searchForm.addEventListener('keyup', filterProducts);
+    document.querySelector('.btnes').addEventListener('click', filterProducts);
+    document.querySelector('.btnDelete').addEventListener('click', () => {
+        results.innerHTML = "";
+    });
+
+    //LOGOUT
+    document.getElementById('deleteInfo').addEventListener('click', logOut)
+
+}
+
+document.addEventListener('DOMContentLoaded', async() => {
     //USER IS LOGGED
     userCanNavegate()
     //SHOW NAME IN TOP NAVIGATION BAR
     showNameinTopNavigationBar()
-
-    form.addEventListener('keyup', filterProducts);
-
-    document.querySelector('.btnes').addEventListener('click', filterProducts);
-    document.querySelector('.btnDelete').addEventListener('click', cleanSearchBar);
-
-    document.getElementById('deleteInfo').addEventListener('click', logOut) //DELETE USERINFO
+    //ADDEVENTLISTENER
+    addEventsListeners()
 })
