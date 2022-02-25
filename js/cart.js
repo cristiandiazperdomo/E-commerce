@@ -1,5 +1,6 @@
 const URL_NEW_CART = "https://mysterious-cove-37583.herokuapp.com/cart"
 const URL_GET = "https://mysterious-cove-37583.herokuapp.com/tobuy"
+const URL_SHIPPING = "https://mysterious-cove-37583.herokuapp.com/shipping"
 
 let getCountArticlesToCheck = [];
 
@@ -21,7 +22,7 @@ const cartElements = async() => {
         
 const postTypeShipping = async() => {
   
-    await fetch("http://localhost:3000/shipping", {
+    await fetch(URL_SHIPPING, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
