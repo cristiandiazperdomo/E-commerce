@@ -13,6 +13,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/categories.css" rel="stylesheet">
   </head>
   <body>
 <nav class="site-header sticky-top py-1 bg-dark">
@@ -34,20 +35,17 @@
     </div>
     </div>
   </nav>
-    <div class="container">
-    <nav>  
-      <div class="col">
-            <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
-            <button  class="btnes btn btn-light  mb-1">Buscar</button>
-            <button  class="btnDelete btn btn-light mb-1">Borrar</button>
-      
+    <div class="container container-categories-main">
+     <nav>  
+      <div class="col d-flex align-items-end">
+            <input type="search" class="form form-control col-xs-4 mt-3 mb-2 ml-1" placeholder="Buscar productos, marcas y más..." />
+            <button  class="btnes btn btn-light ml-1 mb-2">Buscar</button>
+            <button  class="btnDelete btn btn-light ml-1 mb-2">Borrar</button>
             <div class="content-search">
                 <div class="content-table"> 
                     <table class="table">
                         <thead>
-                            <tr class="resultado">
-                                
-                            </tr>
+                            <tr class="resultado"></tr>
                         </thead>
                     </table>
                 </div> 
@@ -59,7 +57,7 @@
             <h2>Categorías</h2>
             <p class="lead">Verás aquí todas las categorías del sitio.</p>
         </div>
-        <div class="container">
+        <div class="container container-categories">
             <div class="row">
                 <div class="col text-right">
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
@@ -88,16 +86,16 @@
                     <div class="col">
                       <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
                     </div>
-                    <div class="col-3 p-0">
+                    <div class="col-3 p-0 button-group">
                       <div class="btn-group" role="group">
                         <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                        <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+                        <button class="btn btn-link btn-sm btn-categories" id="clearRangeFilter">Limpiar</button>
                       </div>
                     </div>
                   </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-categories">
                 <div class="list-group" id="cat-list-container">
                 </div>
             </div>
