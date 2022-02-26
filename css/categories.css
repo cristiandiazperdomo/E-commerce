@@ -1,0 +1,48 @@
+@media all and (max-width: 765px){
+	.container-categories-main{
+		padding-right: 2px;
+    	padding-left: 2px;
+	}
+	.btn-categories{
+		padding: 0;
+	}
+	.button-group{
+		flex-basis: 0;
+	    -ms-flex-positive: 1;
+	    flex-grow: 1;
+	    max-width: 100%;
+
+	    display: flex;
+    	justify-content: center;
+	}
+	.a-categories{
+	
+	}
+	.row{
+		margin: 0;
+	}
+	.div-img-categories{
+		height: 100%;
+		padding: 0;
+
+	}
+	.img-categories{
+		height: 120px;
+		max-width: 100%;
+
+		padding: 0;
+	}
+	.col-categories{
+		padding-right: 0;
+	}
+	.list-group-item{
+		padding: 0;
+
+	}
+	h4{
+		font-size: 1rem;
+	}
+	.container-categories{
+		padding: 0;
+	}
+}

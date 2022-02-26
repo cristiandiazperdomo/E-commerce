@@ -1,0 +1,22 @@
+@media all and (max-width: 765px){
+  .container-address-shipping{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+  .container-form-address{
+    width: 300px !important;
+    padding: 0 !important;
+  }
+  .container-products-info{
+    padding: 20px 0 0 0 !important;
+    width: 300px !important;
+  }
+  .container-products-info .products-info{
+    padding: 0 !important;
+
+  }
+  
+}
