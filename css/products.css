@@ -16,8 +16,7 @@
 	    display: flex;
     	justify-content: center;
 
-    	margin: 1rem;
-	}
+    }
 	.a-categories{
 	
 	}
@@ -64,4 +63,9 @@
     	flex-direction: column;
 	}
 }
-	
+
+@media all and (max-width: 370px){
+	.button-group{
+    	margin: 1rem;
+	}
+}
