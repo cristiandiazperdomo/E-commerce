@@ -266,3 +266,17 @@ a.custom-card:hover {
   margin-left: 1rem;
   margin-top: 1rem;
 }
+
+.container-nav-bar-child{
+  width: 75% !important;
+}
+@media all and (max-width: 765px){
+  .container-nav-bar{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .container-nav-bar-child{
+    width: 100% !important;
+  }
+}
