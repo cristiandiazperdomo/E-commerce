@@ -17,38 +17,42 @@
 </head>
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-3 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-3 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-3 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-3 d-none d-md-inline-block" href="sell.html">Vender</a>
+    <div class="container container-nav-bar d-flex flex-row flex-md-row justify-content-between">
+      <div class="d-flex justify-content-between align-items-center container-nav-bar-child">
+        <a class="py-3 d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-3 d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-3 d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-3 d-md-inline-block" href="sell.html">Vender</a>
+      </div>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <p class="userName d-inline"></p>
+            <p class="userName d-inline"></p>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a> 
-        </div>
+          <a class="dropdown-item g_id_signout" id="deleteInfo">Cerrar sesión</a>  
+       </div>
       </div>
     </div>
   </nav>
-<nav>  
-      <div class="col">
-        <input type="search" class="form form-control col-xs-4 mt-3 mb-1" placeholder="Buscar productos, marcas y más..." />
-        <button  class="btnes btn btn-light  mb-1">Buscar</button>
-        <button  class="btnDelete btn btn-light mb-1">Borrar</button>
-        <div class="content-search">
-            <div class="content-table"> 
-                <table class="table">
-                    <thead>
-                        <tr class="resultado"></tr>
-                    </thead>
-                </table>
-            </div> 
-        </div>
-      </div>
+ <nav>  
+      <div class="col d-flex align-items-end">
+            <input type="search" class="form form-control col-xs-4 mt-3 mb-2 ml-1" placeholder="Buscar productos, marcas y más..." />
+            <button  class="btnes btn btn-light ml-1 mb-2">Buscar</button>
+            <button  class="btnDelete btn btn-light ml-1 mb-2">Borrar</button>
+            <div class="content-search">
+                <div class="content-table"> 
+                    <table class="table">
+                        <thead>
+                            <tr class="resultado">
+                                
+                            </tr>
+                        </thead>
+                    </table>
+                </div> 
+            </div>
+       </div>
     </nav>
   <main role="main">
     <div class="container mt-5">
