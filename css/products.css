@@ -73,10 +73,3 @@
 	    flex-wrap: wrap !important;
 	}
 }
-
-
-@media all and (max-width: 370px){
-	.button-group{
-    	margin: 1rem;
-	}
-}
