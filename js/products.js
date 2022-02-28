@@ -56,17 +56,24 @@ function showProductList() {
                 <div class="list-group">
                 <a class="list-group-item list-group-item-action" href="product-info.html">
                     <div class="row" >
-                        <div class="col-3">
-                            <img  src="` + productos.imgSrc + `" alt="` + productos.desc + `" class="img-thumbnail">
+                        <div class="col-3 div-img-categories">
+                            <img  src="` + productos.imgSrc + `" alt="` + productos.desc + `" class="img-thumbnail img-categories">
                         </div>
-                        <div class="col">
+                        <div class="col col-categories">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">` + productos.name + `</h4>
+                            </div>
+                            <small class="text-muted">` + productos.description + ` artículos</small>
+                        </div>
+                        <div class="container-price">        
+                            <div class="product-price-info">
+                               <small class="text-muted product-price-info-child">` + productos.currency + `</small>
+                               <small class="text-muted product-price-info-child">` + productos.cost + `</small>
+                            </div>
+                            <div>
                                 <small class="text-muted">` + productos.soldCount + ` artículos</small>
                             </div>
-                        <small class="text-muted">` + productos.description + ` artículos</small>
                         </div>
-                       <small class="text-muted">` + productos.cost + productos.currency + `</small>
                     </div>
                     </a>
                 </div>
