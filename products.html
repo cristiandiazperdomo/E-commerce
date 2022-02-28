@@ -60,45 +60,47 @@
             <h2>Productos</h2>
             <p class="lead">Verás aquí todos los productos.</p>
         </div>
-    <div class="row container-categories">
-        <div class="col text-right">
-          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">               
-            <label class="btn btn-light" id="sortByMayorPrecio" >
-            <input type="radio" name="options" autocomplete="off">Mayor Precio
-            </label>
-            <label class="btn btn-light" id="sortByMenorPrecio" >
-            <input type="radio" name="options" autocomplete="off">Menor Precio
-            </label>
-            <label class="btn btn-light" id="sortByCount" >
-            <input type="radio" name="options" ><i class="fas fa-sort-amount-down mr-1"></i>Cant.
-            </label>
+    <div class="d-flex justify-content-between container-top-data">
+      <div class="row container-categories">
+          <div class="col text-right">
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">               
+              <label class="btn btn-light" id="sortByMayorPrecio" >
+              <input type="radio" name="options" autocomplete="off">Mayor Precio
+              </label>
+              <label class="btn btn-light" id="sortByMenorPrecio" >
+              <input type="radio" name="options" autocomplete="off">Menor Precio
+              </label>
+              <label class="btn btn-light" id="sortByCount" >
+              <input type="radio" name="options" ><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+              </label>
+            </div>
           </div>
-        </div>
-    </div> 
-    <div class="row justify-content-end my-2">
-      <div class="col-md-6"></div>
-        <div class="col-md-6 col-sm-12 mb-1 container">
-          <div class="row container p-0 m-0">
-            <div class="col">
-              <p class="font-weight-normal text-right my-2">Cant.</p>
-            </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterProductsCountMin">
-            </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterProductsCountMax">
-            </div>
-            <div class="col-3 p-0 button-group">
-              <div class="btn-group" role="group">
-                <button class="btn btn-light btn-block" id="rangeFilterCountProducts">Filtrar</button>
-                <button class="btn btn-link btn-sm btn-categories" id="clearRangeFilterProducts">Limpiar</button>
+      </div> 
+      <div class="row justify-content-end my-2">
+          <div class="col-md-6 col-sm-12 mb-1 container container-father">
+            <div class="row container p-0 m-0 container-buttons">
+              <div class="col">
+                <p class="font-weight-normal text-right my-2">Cant.</p>
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterProductsCountMin">
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterProductsCountMax">
+              </div>
+              <div class="col-3 p-0 button-group">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-light btn-block" id="rangeFilterCountProducts">Filtrar</button>
+                  <button class="btn btn-link btn-sm btn-categories" id="clearRangeFilterProducts">Limpiar</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
     <div id="container-div__productsName"></div>
   </div>
+
 </div>
     <footer class="text-muted bg-light">
       <div class="container"> </div>
