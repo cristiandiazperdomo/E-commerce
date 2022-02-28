@@ -1,4 +1,7 @@
-
+.container-buttons{
+	display: flex !important;
+    flex-wrap: nowrap !important;
+}
 @media all and (max-width: 765px){
 	.container-categories-main{
 
@@ -57,12 +60,20 @@
 		display: flex;
 		justify-content: center;
 	}
-	.container-price{
+
+}
+
+@media all and (max-width: 538px){
+	.container-top-data{
 		display: flex;
-    	justify-content: space-between;
-    	flex-direction: column;
+		flex-direction: column;
+	}
+	.container-buttons{
+		display: flex !important;
+	    flex-wrap: wrap !important;
 	}
 }
+
 
 @media all and (max-width: 370px){
 	.button-group{
