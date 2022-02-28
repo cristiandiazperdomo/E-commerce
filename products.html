@@ -12,6 +12,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/products.css" rel="stylesheet">
   </head>
   <body>
 <nav class="site-header sticky-top py-1 bg-dark">
@@ -34,7 +35,7 @@
       </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container container-categories-main">
     <nav>  
       <div class="col d-flex align-items-end">
             <input type="search" class="form form-control col-xs-4 mt-3 mb-2 ml-1" placeholder="Buscar productos, marcas y más..." />
@@ -59,7 +60,7 @@
             <h2>Productos</h2>
             <p class="lead">Verás aquí todos los productos.</p>
         </div>
-    <div class="row">
+    <div class="row container-categories">
         <div class="col text-right">
           <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">               
             <label class="btn btn-light" id="sortByMayorPrecio" >
@@ -87,10 +88,10 @@
             <div class="col">
               <input class="form-control" type="number" placeholder="máx." id="rangeFilterProductsCountMax">
             </div>
-            <div class="col-3 p-0">
+            <div class="col-3 p-0 button-group">
               <div class="btn-group" role="group">
                 <button class="btn btn-light btn-block" id="rangeFilterCountProducts">Filtrar</button>
-                <button class="btn btn-link btn-sm" id="clearRangeFilterProducts">Limpiar</button>
+                <button class="btn btn-link btn-sm btn-categories" id="clearRangeFilterProducts">Limpiar</button>
               </div>
             </div>
           </div>
