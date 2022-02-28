@@ -50,7 +50,7 @@ const showNameinTopNavigationBar = () => {
 
     let htmlContentToAppendUser = document.querySelector(".userName")
 
-    htmlContentToAppendUser.innerHTML += ` <a class="py-2 d-none d-md-inline-block" href="#"> ` + isLogged[0].name + `</a>`
+    htmlContentToAppendUser.innerHTML += ` <a class="py-2 d-md-inline-block" href="#"> ` + isLogged[0].name + `</a>`
 
 }
 
