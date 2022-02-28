@@ -63,7 +63,7 @@ function showProductList() {
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">` + productos.name + `</h4>
                             </div>
-                            <small class="text-muted">` + productos.description + ` artículos</small>
+                            <small class="text-muted">` + productos.description + `</small>
                         </div>
                         <div class="container-price">        
                             <div class="product-price-info">
