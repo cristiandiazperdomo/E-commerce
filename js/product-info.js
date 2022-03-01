@@ -1,3 +1,4 @@
+'use strict'
 let staticComments = [];
 
 let currentProductArray = [];
@@ -8,19 +9,34 @@ function showProduct(currentProductArray) {
 
 	let product = currentProductArray;
 
+	let carouselZone = document.getElementById("carouselExampleControls");
+
 	dataProd += `	
-            <div class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">` + product.name + ` </h4>
-                            <small class="text-muted">` + product.cost + ` ` + product.currency + ` ` + product.soldCount + ` artículos </small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <small class="text-muted">` + product.category + `</small>
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col">
+                	<div class="top-productinfo-card">
+	                	<div>
+	                    	<small class="text-muted">` + product.category + ` | </small>
+	                        <small class="text-muted">` + product.soldCount + ` artículos </small>
+	                    </div>
+	                    <div>
+	                        <small class="text-muted average-stars">${averageStars()}</small>
+	                    </div>
+	                </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">` + product.name + ` </h4>
                     </div>
                 </div>
-            </div>`
+            </div>
+        </div>`
+
+    carouselZone.innerHTML += `
+    <div class="list-group-item list-group-item-action">
+	    <h4 class="my-4">` + "Precio: " + ` ` + "U$D" + ` ` + product.cost + `</h4>
+		<p class="m-0 mb-2 product-descrition">Descripción</p>
+		<p class="">` + product.description + `</p>
+	</div>`
 
 	dataProd += `<div class="carousel-item active">
                 	<img  src="` + product.images[0] + `" class="d-block w-100">
@@ -31,9 +47,10 @@ function showProduct(currentProductArray) {
 		dataProd += `<div class="carousel-item">
 	                	<img src="` + product.images[i] + `" class="d-block w-100">
 	                </div>`
-
 	}
+	
 	document.getElementById("dataImage").innerHTML = dataProd;
+
 }
 
 function showRelatedProducts(allProd, relatedProd) {
@@ -49,12 +66,12 @@ function showRelatedProducts(allProd, relatedProd) {
 	}
 	relatedProdHTML += `	
     <div class="carousel-item active">
-    	<img src="` + arrayWithProdFilter[0].imgSrc + `" class=" rounded mx-auto d-block">
+    	<img src="` + arrayWithProdFilter[0].imgSrc + `" class="rounded mx-auto d-block w-100">
     </div>`
 	for (var i = 1; i < arrayWithProdFilter.length; i++) {
 		relatedProdHTML += `	
         <div class="carousel-item">
-        	<img src="` + arrayWithProdFilter[i].imgSrc + `" class=" rounded mx-auto d-block">
+        	<img src="` + arrayWithProdFilter[i].imgSrc + `" class="rounded mx-auto d-block w-100">
         </div>`
 	}
 
@@ -150,19 +167,13 @@ const clickToChangeComment = (numOfDiv, num) => {
 		<input type="text" id="inputReddit"/>
 		<ul class="cancelordoit" style="margin: 0; padding: 0;">	
 			<li class="options">	
-				<button type="button" onclick="receiveNewComment(${numOfDiv + 4})" id="hola" style="margin: 0; padding: 0; background-color: transparent; border: none;">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 172 172" style=" fill:#000000;">
-			 			<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path>
-			 			<g fill="#2ecc71"><path d="M86,31.01123c-30.32037,0 -54.98746,24.71884 -54.98746,55.04257c0,30.32373 24.6654,55.03995 54.98746,55.03995h0.00328c30.32037,0 54.98746,-24.71949 54.98746,-55.04323c0,-30.32373 -24.66868,-55.03929 -54.99074,-55.03929zM86.00328,37.75557c26.61902,0 48.26739,21.69234 48.26739,48.31136c0,26.61902 -21.65305,48.30807 -48.26871,48.30807h-0.00197c-26.61566,0 -48.26871,-21.7058 -48.26871,-48.32448c0,-26.61868 21.65297,-48.29495 48.27199,-48.29495zM105.31837,64.998c-0.89006,-0.01139 -1.74921,0.3261 -2.39355,0.94023l-25.13692,24.21899l-9.6418,-9.28159c-1.33683,-1.2863 -3.46325,-1.24547 -4.74971,0.0912l-7.92077,8.23047c-1.28647,1.33665 -1.24594,3.46307 0.09055,4.74971l19.89774,19.15303c1.30092,1.25278 3.35955,1.25278 4.66048,0l35.38695,-34.09831c0.64165,-0.61825 1.0114,-1.46609 1.02788,-2.35697c0.01649,-0.89088 -0.32163,-1.75183 -0.93996,-2.39339l-7.92406,-8.22522c-0.61817,-0.64171 -1.46594,-1.01155 -2.35681,-1.02815zM105.16747,73.10774l3.26292,3.38693l-30.63921,29.51788l-15.14605,-14.57916l3.26096,-3.38825l9.55256,9.19498c1.30101,1.2532 3.36012,1.2532 4.66113,0z"></path></g></g>
-					</svg>
+				<button type="button" class="btn btn-secondary mx-2" onclick="receiveNewComment(${numOfDiv + 4})" id="hola">
+					Aceptar
 				</button>
 			</li>
 			<li class="options">
-			<button onclick="showOldComments()" style="margin-bottom: 2px; padding: 0; background-color: transparent; border: none;">
-				<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 172 172" style=" fill:#000000;">
-					<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path>
-					<g fill="#e74c3c"><path d="M86,11.57692c-41.03688,0 -74.42308,33.38619 -74.42308,74.42308c0,41.03655 33.38619,74.42308 74.42308,74.42308c41.03688,0 74.42308,-33.38652 74.42308,-74.42308c0,-41.03688 -33.38619,-74.42308 -74.42308,-74.42308zM119.76856,132.30075c-0.043,0.48788 -0.30001,0.93045 -0.70156,1.21062c-9.73255,6.78606 -21.16692,10.37325 -33.067,10.37325c-31.91758,0 -57.88462,-25.96704 -57.88462,-57.88462c0,-11.89975 3.58719,-23.33412 10.37325,-33.06733c0.28016,-0.40155 0.72339,-0.65823 1.21095,-0.70156c0.48921,-0.04333 0.96915,0.13198 1.31547,0.47796l78.27555,78.27588c0.34598,0.34632 0.52129,0.82792 0.47796,1.3158zM133.51136,119.06733c-0.28016,0.40122 -0.72339,0.6579 -1.21095,0.70123c-0.04829,0.0043 -0.09725,0.00695 -0.14521,0.00695c-0.43662,0 -0.85802,-0.17266 -1.16927,-0.48458l-78.27654,-78.27588c-0.34598,-0.34598 -0.52096,-0.82758 -0.47796,-1.31547c0.043,-0.48755 0.30001,-0.93078 0.70156,-1.21095c9.73288,-6.78606 21.16725,-10.37325 33.067,-10.37325c31.91758,0 57.88462,25.96704 57.88462,57.88462c0,11.90008 -3.58719,23.33412 -10.37325,33.06733z"></path></g></g>
-				</svg>
+			<button class="btn btn-danger" onclick="showOldComments()">
+				Cancelar
 			</button>				
 			</li>
 		</ul>
@@ -178,6 +189,19 @@ const editComment = (num) => {
 		groupOfComments[numOfDiv].addEventListener('click', (event) => clickToChangeComment(numOfDiv))
 	}
 
+}
+const averageStars = () => {
+	let sumOfStars = 0;
+	staticComments[0].forEach(comment => {
+		sumOfStars += comment.score
+	});
+	let average = Math.round(sumOfStars / staticComments[0].length);
+
+	let starsIcon = yellowStart(average) + blackStart(5 - average)
+
+	let asd = ` ${starsIcon}` + " " + staticComments[0].length + " opiniones" +``;
+
+	return asd;
 }
 
 function showOldComments() {
@@ -209,8 +233,6 @@ function showOldComments() {
 	let num = document.querySelectorAll('.commentsTd')
 
 	editComment(num.length) 
-
-	return commentsHTML;
 
 }
 
@@ -247,12 +269,6 @@ btnEnviar.addEventListener('click', toComments);
 
 document.addEventListener("DOMContentLoaded", async function(e) {
 
-	/*SHOW PRODUCT*/
-	getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
-		if (resultObj.status === "ok") {
-			showProduct(resultObj.data)
-		}
-	});
 
 	/*COMMENTS*/
 	getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
@@ -260,6 +276,7 @@ document.addEventListener("DOMContentLoaded", async function(e) {
 			staticComments.push(resultObj.data)
 			showOldComments()
 		}
+
 	});
 
 	/* RELATED PRODUCTS */
@@ -269,5 +286,11 @@ document.addEventListener("DOMContentLoaded", async function(e) {
 	if (arrAllProd.status && arrRelatedProd.status === "ok") {
 		showRelatedProducts(arrAllProd.data, arrRelatedProd.data)
 	}
+	/*SHOW PRODUCT*/
+	getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
+		if (resultObj.status === "ok") {
+			showProduct(resultObj.data)
+		}
+	});
 
 });
