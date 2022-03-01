@@ -1,0 +1,7 @@
+.top-productinfo-card{
+	display: flex;
+	justify-content: space-between;
+}
+.product-descrition{
+	color: black; font-size: 1rem; font-size: 1.25rem;
+}
