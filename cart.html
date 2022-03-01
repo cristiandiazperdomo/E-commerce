@@ -32,6 +32,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/cart.css" rel="stylesheet">
 </head>
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
@@ -81,27 +82,27 @@
           </div>
       </section>
     </br>
-    <section class="ml-5">
-      <article class="ml-5">
+    <section>
+      <article>
         <div class="row">
           <form name="fradios" id="fradios" class="form-check form-check-inline">
             <div class="col-lg-4">
-              <label onclick="shippingType()">
-                <img src="img/envios.png" class="col-lg-4">
+              <label onclick="shippingType()" class="label-father">
+                <img src="img/envios.png" class="col-lg-4 img-thumbnail">
                 <input type="radio" name="shipping" value="15" checked> 
               </label>
               Premium (2-5 días) - Costo del 15% sobre el subtotal.
             </div>
             <div class="col-lg-4">
-                <label onclick="shippingType()">
-                <img src="img/envios.png" class="col-lg-4">
+                <label onclick="shippingType()" class="label-father">
+                <img src="img/envios.png" class="col-lg-4 img-thumbnail">
                 <input type="radio" name="shipping" value="7">
                 </label>
                 Express (5-8 días) - Costo del 7% sobre el subtotal.
             </div>
             <div class="col-lg-4">
-              <label onclick="shippingType()" >
-              <img src="img/envios.png" class="col-lg-4">
+              <label onclick="shippingType()" class="label-father">
+              <img src="img/envios.png" class="col-lg-4 img-thumbnail">
                 <input type="radio" name="shipping" value="5"> 
                 </label>
                 Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
