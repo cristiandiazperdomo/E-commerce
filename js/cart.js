@@ -66,25 +66,28 @@ const showCart = (array) => {
 
             allArticles += `
                 <div class="list-group">
-                <a class="list-group-item ">
-                    <div class="row" >
-                        <div class="col-3">
+                <a class="list-group-item">
+                    <div class="row cart-elements">
+                        <div class="col-3 img-container">
                             <img src="` + elementsCart.src + `"class="img-thumbnail">
                         </div>
-                        <div class="col">
+                        <div class="col container-down-info">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">` + elementsCart.name + `</h4>
-                                <label class="text-muted">Cantidad:   <input type="number" name="take" min="0" max="100" class="countArticles countArticlesClass" value="` + elementsCart.count + `" id="laid${i}"></label>
+                                <label class="text-muted count-container">Cantidad:   <input type="number" name="take" min="0" max="100" class="countArticles countArticlesClass" value="` + elementsCart.count + `" id="laid${i}"></label>
                             </div>
-                            <small class="ladata text-muted d-flex"></small>
-                            <small class="showSubTotalandShipping text-muted d-flex"></small>
-                            </br>
-                            </br>
-                    <div class="d-flex justify-content-end">
-                        <label onclick="deleteArticle(${i});"><input type="button" class="btn btn-primary" value="Eliminar Articulo"></input></label>
-                    </div>
+                            <div class="bottom-data">
+                                <div>    
+                                    <small class="text-muted each-price-product">Precio individual: ` + convertToDollars[i] + `</small>
+                                    <small class="ladata text-muted d-flex"></small>
+                                    <small class="showSubTotalandShipping text-muted d-flex"></small>
+                                    </br>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <label onclick="deleteArticle(${i});"><input type="button" class="btn btn-primary" value="Eliminar Articulo"></input></label>
+                                </div>
+                            </div>
                         </div>
-                            <small class="text-muted each-price-product">` + convertToDollars[i] + `</small>
                     </div>
                     </a>
                 </div>
@@ -95,10 +98,7 @@ const showCart = (array) => {
         }
 
     } else {
-        let allArticles = "";
-        allArticles += `<p class="text-muted">Seria mejor si compras algo :)</p>`
-
-        document.getElementById('itemsCart').innerHTML = allArticles;
+        document.getElementById('itemsCart').innerHTML = "";
     }
 }
 
