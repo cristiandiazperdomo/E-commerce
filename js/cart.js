@@ -7,7 +7,7 @@ let getCountArticlesToCheck = [];
 let elementsOnArray = [];
 let shippingArray = [];
 
-const cartElements = async() => {
+const cartElements = async () => {
 
     const newCartJSON = await getJSONData(URL_NEW_CART);
 
@@ -16,12 +16,12 @@ const cartElements = async() => {
         elementsOnArray.push(newCartJSON.data)
 
         showCart(newCartJSON.data)
-      
+
     }
 };
-        
-const postTypeShipping = async() => {
-  
+
+const postTypeShipping = async () => {
+
     await fetch(URL_SHIPPING, {
         method: "POST",
         headers: {
@@ -29,8 +29,9 @@ const postTypeShipping = async() => {
         },
         body: JSON.stringify(shippingArray)
     })
+
 }
-const cartElementsToBackend = async() => {
+const cartElementsToBackend = async () => {
 
     await fetch(URL_GET, {
         method: "POST",
@@ -42,27 +43,30 @@ const cartElementsToBackend = async() => {
 
 }
 
+const priceToDollars = (array) => {
+    const priceToDollarsArray = [];
+
+    for (arr of array.articles) {
+        if (arr.currency === "UYU") {
+            priceToDollarsArray.push(arr.unitCost / 40);
+        } else {
+            priceToDollarsArray.push(arr.unitCost);
+        }
+    }
+
+    return priceToDollarsArray;
+}
 
 const showCart = (array) => {
 
     if (array.articles.length !== 0) {
 
-        let convertToDollars = [];
-
-        for (arr of array.articles) {
-
-            if (arr.currency === "UYU") {
-                convertToDollars.push(arr.unitCost / 40 + " USD")
-            } else {
-                convertToDollars.push(arr.unitCost + " USD")
-            }
-
-        }
+        let convertToDollars = priceToDollars(array)
 
         let allArticles = "";
 
         for (let i = 0; i < array.articles.length; i++) {
-            let elementsCart = array.articles[i];
+            const elementsCart = array.articles[i];
 
             allArticles += `
                 <div class="list-group">
@@ -79,7 +83,7 @@ const showCart = (array) => {
                             <div class="bottom-data">
                                 <div>    
                                     <small class="text-muted each-price-product">Precio individual: ` + convertToDollars[i] + `</small>
-                                    <small class="ladata text-muted d-flex"></small>
+                                    <small class="subtotal text-muted d-flex"></small>
                                     <small class="showSubTotalandShipping text-muted d-flex"></small>
                                     </br>
                                 </div>
@@ -91,10 +95,8 @@ const showCart = (array) => {
                     </div>
                     </a>
                 </div>
-
-        `
-        document.getElementById('itemsCart').innerHTML = allArticles;
-
+            `
+            document.getElementById('itemsCart').innerHTML = allArticles;
         }
 
     } else {
@@ -102,64 +104,49 @@ const showCart = (array) => {
     }
 }
 
+const calculateSubTotal = (numberOfEachItems, dolarPrice) => numberOfEachItems * dolarPrice;
+
 const showTotal = (array, shipping) => {
 
-    let convertToDollars = [];
+    const dolarPrice = priceToDollars(array) // ARRAY WITH PRICES IN DOLLARS
 
-    for (arr of array.articles) {
-        if (arr.currency === "UYU") {
-            convertToDollars.push(arr.unitCost / 40);
-        } else {
-            convertToDollars.push(arr.unitCost);
-        }
+    const numberOfEachItems = document.querySelectorAll('.countArticlesClass');
+
+    let allSubTotalsArray = [];
+
+    for (let i = 0; i < array.articles.length; i++) { // SUBTOTAL
+
+        const subTotalHTML = document.querySelectorAll('.subtotal');
+        
+        const subTotal = calculateSubTotal(Number(numberOfEachItems[i].value), dolarPrice[i])
+
+        allSubTotalsArray.push(subTotal);
+
+        subTotalHTML[i].innerHTML = `SubTotal: ` + allSubTotalsArray[i] + ` USD `;
+
+        elementsOnArray[0].articles[i].count = numberOfEachItems[i].value; // ASSIGN NEW VALUE TO MAIN ARRAY
     }
 
-    let countArticlesNew = document.querySelectorAll('.countArticlesClass');
-    let location = document.querySelectorAll('.ladata');
-    let showSubTotalandShipping = document.querySelectorAll('.showSubTotalandShipping');
+    let showSubTotalandShipping = document.querySelectorAll('.showSubTotalandShipping'); // SUBTOTAL AND SHIPPING
 
-    //--------
-    let unitCountArticlesOld = [];
+    for (let i = 0; i < allSubTotalsArray.length; i++) {
 
-    for (let i = 0; i < array.articles.length; i++) { //UNICAMENTE SUBTOTAL
-        let showSubTotal = "";
+        const valorTotalAndShipping = allSubTotalsArray[i] + (allSubTotalsArray[i] * (shipping / 100));
 
-        unitCountArticlesOld.push(Number(countArticlesNew[i].value) * convertToDollars[i]);
-
-        showSubTotal += `SubTotal: ` + unitCountArticlesOld[i] + ` USD `
-
-        location[i].innerHTML = showSubTotal;
-
-        elementsOnArray[0].articles[i].count = countArticlesNew[i].value;
-    }
-
-    for (let i = 0; i < unitCountArticlesOld.length; i++) {
-
-        let showSubTotalandShippingArray = "";
-
-        let valorTotalAndShipping = unitCountArticlesOld[i] + (unitCountArticlesOld[i] * (shipping / 100));
-
-        showSubTotalandShippingArray += `Envio + SubTotal: ${valorTotalAndShipping.toFixed(2)} `
-
-        showSubTotalandShipping[i].innerHTML = showSubTotalandShippingArray;
+        showSubTotalandShipping[i].innerHTML = `Envio + SubTotal: ${valorTotalAndShipping.toFixed(2)} `
 
     }
 
-    let valorTotal = 0; // CALCULAR TOTAL
+    let totalValue = 0; // CALCULAR TOTAL
 
-    console.log(unitCountArticlesOld)
-    for (let i = 0; i < unitCountArticlesOld.length; i++) {
-
-        valorTotal += unitCountArticlesOld[i] + (unitCountArticlesOld[i] * (shipping / 100));
+    for (let i = 0; i < allSubTotalsArray.length; i++) {
+        totalValue += allSubTotalsArray[i] + (allSubTotalsArray[i] * (shipping / 100));
     }
+    
+    let showTotalInnerHTML = document.getElementById('totalPriceAll').innerHTML;
 
-    //--------   
+    showTotalInnerHTML = `<p> TOTAL + ENVÍO: <span class="total">` + totalValue.toFixed(2) + ` USD</span></p>`
 
-    let showTotalInnerHTML = "";
-
-    showTotalInnerHTML += `<p> TOTAL + ENVÍO: <span class="total">` + valorTotal.toFixed(2) + ` USD</span></p>`
-
-    document.getElementById('totalPriceAll').innerHTML = showTotalInnerHTML;
 
 }
 
@@ -193,7 +180,7 @@ const deleteArticle = async (index) => {
 
 };
 
-const shippingType = async() => {
+const shippingType = async () => {
 
     let shippingType = []
 
@@ -220,10 +207,10 @@ const shippingType = async() => {
 
 }
 
-document.getElementById('shopping-end').addEventListener('click', async() => {
+document.getElementById('shopping-end').addEventListener('click', async () => {
     await cartElementsToBackend()
 })
-document.addEventListener('DOMContentLoaded', async() => {
+document.addEventListener('DOMContentLoaded', async () => {
     //GET ELEMENTS 
     await cartElements()
     //SHIPPING TYPE  
