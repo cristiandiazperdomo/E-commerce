@@ -143,9 +143,9 @@ const showTotal = (array, shipping) => {
         totalValue += allSubTotalsArray[i] + (allSubTotalsArray[i] * (shipping / 100));
     }
     
-    let showTotalInnerHTML = document.getElementById('totalPriceAll').innerHTML;
+    let showTotalInnerHTML = document.getElementById('totalPriceAll');
 
-    showTotalInnerHTML = `<p> TOTAL + ENVÍO: <span class="total">` + totalValue.toFixed(2) + ` USD</span></p>`
+    showTotalInnerHTML.innerHTML = `<p> TOTAL + ENVÍO: <span class="total">` + totalValue.toFixed(2) + ` USD</span></p>`
 
 
 }

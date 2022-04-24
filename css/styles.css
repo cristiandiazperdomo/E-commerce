@@ -172,10 +172,17 @@ a.custom-card:hover {
 #colordeseparacion{
   color: #fff;
 }
-
+.content-search{
+  width: 100%;
+}
+.resultado {
+  width: 100%;
+}
 .form {
   display: inline;
-  width: 85%;
+}
+input[type="search"] {
+  width: 85% !important;
 }
 .staticcomments{
   display: block;
@@ -192,7 +199,11 @@ a.custom-card:hover {
   width: 64px;
   text-align: center;
 }
-
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
 .subir{
   border: 5px solid #f8f9fa;
   border-radius: 50%;
