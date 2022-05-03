@@ -35,7 +35,8 @@
 		height: 120px;
 		max-width: 100%;
 		padding: 0;
-	    min-width: 6.5rem;
+	    	min-width: 6.5rem;
+		object-fit: cover;
 	}
 	.col-categories{
 		padding-right: 0;
